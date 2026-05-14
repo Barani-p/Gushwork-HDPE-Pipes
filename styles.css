@@ -450,12 +450,11 @@ textarea { resize: vertical; }
   align-items: center; 
   width: 100%;
   max-width: 1240px;
-  height: 48px;
   margin: 0 auto;
 }
 .trust-logo { 
   width: auto;
-  height: 100%;
+  height: 48px;
   opacity: 1;
 }
 
@@ -1980,7 +1979,7 @@ background-repeat: repeat;
 }
 .modal-content {
   background: #ffffff;
-  width: 100%;
+  width: calc(100% - 40px);
   max-width: 520px;
   border-radius: 12px;
   box-shadow: 0 10px 40px rgba(0,0,0,0.15);
@@ -2133,37 +2132,50 @@ background-repeat: repeat;
   .expert-cta-card { flex-direction: column; text-align: center; align-items: center; gap: 16px; padding: 24px; }
   .contact-navy-card { grid-template-columns: 1fr; gap: 36px; padding: 40px 36px; height: auto; }
   .footer__grid { grid-template-columns: 1fr 1fr; }
+  .trust-bar__logos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; justify-items: center; height: auto; }
+  .trust-logo:nth-child(n+5) { display: none; }
 }
 
 @media (max-width: 768px) {
   /* Re-order elements for mobile view as per design */
-  .product-hero__grid { display: flex; flex-direction: column; gap: 32px; }
+  .product-hero__grid { display: flex; flex-direction: column; gap: 24px; }
   .product-info { display: contents; }
-  .cert-badges { order: 1; margin-bottom: -16px; }
-  .product-title { order: 2; }
-  .features-list { order: 3; }
-  .gallery { order: 4; margin: 16px 0; }
-  .price-card { order: 5; }
+  .cert-badges { order: 1; margin-bottom: 0px; }
+  .product-title { order: 2; margin-bottom: 4px; }
+  .gallery { order: 3; margin: 0; }
+  .feature-list { order: 4; margin: 8px 0; }
+  .price-card { order: 5; margin-top: 8px; }
   .product-cta { order: 6; }
   
   .navbar__nav { display: none; }
   .hamburger { display: flex; }
   .sticky-bar__title { font-size: 0.78rem; }
-  .gallery__viewport { height: 300px; }
+  .gallery__viewport { height: auto; aspect-ratio: 4 / 3; }
   .gallery__thumbs { gap: 8px; }
   .gallery__thumb { width: 60px; height: 54px; }
   .product-title { font-size: 1.7rem; }
   .price-card__price { font-size: 1.3rem; }
   .product-cta { flex-direction: column; }
   .product-cta .btn { width: 100%; }
-  .specs-table__head, .specs-table__row { grid-template-columns: 1fr; padding: 14px 16px; }
-  .specs-table__col:last-child, .specs-table__cell:last-child { display: none; }
-  .trust-bar__logos { gap: 24px; }
+  
+  .specs-table__head { display: grid; grid-template-columns: 1fr 1.5fr; padding: 12px 16px; }
+  .specs-table__row { display: grid; grid-template-columns: 1fr 1.5fr; gap: 12px; padding: 14px 16px; }
+  .specs-table__col { font-size: 0.7rem; }
+  .specs-table__cell { font-size: 0.8rem; line-height: 1.5; }
+  .specs-table__cell:first-child { color: rgba(255,255,255,0.9); font-size: 0.8rem; text-transform: none; letter-spacing: 0; font-weight: 500; }
+  .specs-table__cell:last-child { color: #e4e4e7; font-size: 0.8rem; font-weight: 400; }
+  .btn--outline-light { width: 100%; justify-content: center; }
+  
+  .trust-bar__logos { gap: 24px; grid-template-columns: repeat(3, 1fr); justify-items: center; }
+  .trust-logo { height: 36px; }
+  .trust-logo:nth-child(n+4) { display: none; }
   .footer__links { grid-template-columns: 1fr 1fr; }
   .footer__bottom-inner { flex-direction: column; gap: 8px; text-align: center; }
   .form-row { grid-template-columns: 1fr; }
   .features-grid { grid-template-columns: 1fr; }
   .apps-card { min-width: calc(80% - 12px); height: 280px; }
+  .testi-card { width: 320px; min-width: 320px; padding: 24px; height: auto; min-height: 380px; }
+  .testimonials-track { padding: 8px 24px 16px; }
   .faq-question { padding: 16px 18px; font-size: 0.9rem; }
   .faq-item.is-open .faq-answer { padding: 0 18px 16px; }
   .catalogue-cta { padding: 20px; }
@@ -2185,6 +2197,10 @@ background-repeat: repeat;
   .contact-navy-card { padding: 32px 16px; border-radius: 20px; }
   .contact-navy-card__title { font-size: 28px; }
   .contact-navy-card__form-wrap { padding: 24px 16px; }
+  .testi-card { width: 85vw; min-width: 85vw; }
+  .trust-bar__logos { gap: 20px; grid-template-columns: repeat(3, 1fr); }
+  .trust-logo { height: 28px; }
+}
 
 /* ============================================================
    PRINT STYLES — hide interactive UI when printing

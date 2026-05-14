@@ -1966,8 +1966,10 @@ background-repeat: repeat;
   background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(4px);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  padding: 20px;
+  overflow-y: auto;
   z-index: 9999;
   opacity: 0;
   visibility: hidden;
@@ -1979,14 +1981,14 @@ background-repeat: repeat;
 }
 .modal-content {
   background: #ffffff;
-  width: calc(100% - 40px);
+  width: 100%;
   max-width: 520px;
   border-radius: 12px;
   box-shadow: 0 10px 40px rgba(0,0,0,0.15);
   transform: translateY(20px);
   transition: transform 0.3s ease;
   overflow: hidden;
-  margin: 20px;
+  margin: auto;
 }
 .modal-overlay.is-open .modal-content {
   transform: translateY(0);
@@ -2118,6 +2120,9 @@ background-repeat: repeat;
    MEDIA QUERIES
 ============================================================ */
 @media (max-width: 1024px) {
+  /* Disable hover zoom on touch devices */
+  .zoom-lens, .zoom-result { display: none !important; }
+  
   .product-hero__grid { gap: 32px; } /* Keep 2-columns for tablet */
   .contact-section__grid { grid-template-columns: 1fr; gap: 32px; }
   .footer__top-inner { grid-template-columns: 1fr; gap: 32px; }
@@ -2200,6 +2205,12 @@ background-repeat: repeat;
   .testi-card { width: 85vw; min-width: 85vw; }
   .trust-bar__logos { gap: 20px; grid-template-columns: repeat(3, 1fr); }
   .trust-logo { height: 28px; }
+  
+  /* Modal Mobile Fixes */
+  .modal-header { padding: 16px; }
+  .modal-body { padding: 16px; }
+  .modal-footer { padding: 16px; margin: 8px -16px -16px; }
+  .modal-submit-btn { width: 100%; }
 }
 
 /* ============================================================
